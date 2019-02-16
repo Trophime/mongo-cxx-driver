@@ -34,7 +34,11 @@ override_dh_auto_install:
 	find $(CURDIR)/debian/tmp -type d -empty -delete
 
 override_dh_auto_test:
-	# do nothing
+	echo "Start a test db"
+	mkdir -p debian/test/data/db
+	mongod --fork --logpath debian/test/data/log --dbpath debian/test/data/db
+	echo "Run tests"
+	dh_auto_test -B$(CURDIR)/build
 
 override_dh_missing:
 	dh_missing --fail-missing
