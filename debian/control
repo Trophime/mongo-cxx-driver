@@ -11,7 +11,10 @@ Build-Depends: debhelper (>= 11),
                libboost-dev,
                libsasl2-dev,
                libicu-dev,
-               doxygen
+               doxygen,
+               catch,
+               mongodb-server,
+               mongodb-clients
 Standards-Version: 4.3.0
 Section: libs
 Homepage: http://mongocxx.org/
